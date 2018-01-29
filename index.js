@@ -4,11 +4,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mustacheExpress = require('mustache-express');
-const destinationRouter = require('./controllers/destination');
+const passport = require('passport');
+const session = require('express-session');
+// const auth = require('./services/auth.js');
 
 // Config and Middleware
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 
 // To wire up the mustache templating engine with express and declare a views and
@@ -27,12 +29,12 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const destinationRouter = require('./controllers/destination');
+app.use('/', destinationRouter);
 
 app.get('/', (req, res) => {
   res.render('main');
 });
-
-app.use('/destination', destinationRouter);
 
 //  catchall for any wayward web requests.
 app.use((err, req, res, next) => {
