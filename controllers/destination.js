@@ -3,26 +3,39 @@
 const router = require("express").Router();
 const destination = require("../models/destination.js");
 
-// router.get("/", (req, res, next) => {
-//   const destinationData = [
-//     { id: 1, title: 'Clean Car', description: 'not fun' },
-//     { id: 2, title: 'Shave cat', description: 'why is that happening' },
-//     { id: 3, title: 'make pasta', description: 'need food' }
-//   ];
-//   res.render("destination", { destinationData: destinationData });
+
+// router.post("/", beers.create, (req, res, next) => {
+//     res.json({ id: res.locals.newBeerId, body: req.body });
 // });
 
 
 
 
-router.get('/viewDestination', destination.allDestination, (req, res) => {
-  res.render("destination", {destinationData: res.locals.allPlaces});
+
+router.get('/viewDestination', (req, res) => { 
+  destination.all()
+  .then((destinations) => {
+    console.log(destinations);
+    res.render("destination", {destinationData: destinations});
+  })
+  // 
 });
 
 
 router.get('/countryview',(req, res) =>{
   res.render("countryview");
 });
+
+router.get('/countryview/:countryname', destination.allDestination, (req, res, next)=>{
+  res.render("chosenCountry", res.locals.allPlaces);
+  console.log('here',res.locals.allPlaces);
+});
+// ajax call  
+
+router.post('/countryview/:countryname', destination.create, (req, res) => {
+  res.redirect('/viewDestination');
+})
+
 
 
 module.exports = router;
