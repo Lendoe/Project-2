@@ -4,6 +4,40 @@ $(function() {
     makeCall(textInput);
   });
 
+  $("#update").submit(e => {
+    e.preventDefault();
+    const id = $(e.target).data("del-id");
+    const name = $(e.target).data("country-name");
+    const data = $(e.target).serialize();
+    console.log("data", data, name);
+    $.ajax({ 
+        url:`/countryview/${name}/${id}`,
+        data:data,
+        type:"PUT",
+        error:function(){
+
+        },
+        success:function(response){
+          console.log(response);
+          window.location.href = "/viewDestination"
+        }
+                  
+  
+      
+    })
+  })
+
+
+
+
+
+  // const countryID = $("#deleteButton").data("countryID");
+  console.log("countryID",$("#del-btn").data("del-id"));
+
+$("#deleteButton").click(function(){
+})
+
+
   function makeCall(country) {
     $.ajax(
       `https://restcountries.eu/rest/v2/name/${country}?fullText=true`,
@@ -53,10 +87,10 @@ $(function() {
       console.log(image_url);
       $.post(`/countryview/${countryName}`,
         {
-          name: countryName,
-          population,
-          capital,
-          flag_url: image_url
+          name :countryName,
+          population : population,
+          capital : capital,
+          flag_url : image_url
         },
         function(data){
           console.log(`posted! ${data}`)
@@ -65,6 +99,33 @@ $(function() {
       )
     })
   }
-}); // ends doc.ready
+
+const $updateButton = $("#updateButton");
+$updateButton.submit(e=>{
+  e.preventDefault();
+  console.log("submitted");
+});
+
+
+
+// --------------------------------------------------------------------
+  // Delete functionality for the /users/trains page
+  const $deleteBtn = $('#del-btn');
+  $deleteBtn.click(e => {
+    e.preventDefault();
+    console.log("*****(&(**(%%%");
+    const countryID = e.target.getAttribute('data-del-id');
+    const data = $(e.target).serialize();
+    $.ajax({
+      method: "delete",
+      data : data,
+      url: `/countryview/${countryID}`,
+      success: data => {
+        window.location.href = "/viewDestination";
+      }
+    })
+  });
+});
+ // ends doc.ready
 
 

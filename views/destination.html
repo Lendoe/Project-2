@@ -1,6 +1,28 @@
+<!DOCTYPE html>
+<html>
 
-<h3>All the Destinations</h3>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<h3>Must Visit Destinations</h3>
     {{#destinationData}}
-    <h4>{{name}}</h4>
-    
+    <form id="checkBox" action >
+      
+   
+    <button type=""><a href="/countryview/{{name}}/{{id}}">Check status </a></button> {{name}}
+     </form>
     {{/destinationData}}
+
+
+
+
+
+    <button VALUE="GO BACK"><a href="/countryview">Go Back</a></button>
+
+    </html>
+
+
+
+

@@ -1,0 +1,50 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="/jquery.js"></script>
+  <script src="/script.js"></script>
+
+
+</head>
+<body>
+  <h3>Adjusted List</h3>
+
+
+<h3> Country: {{country.name}}</h3>
+<h3> Capital:  {{country.capital}}</h3>
+<h3> Visited :{{country.visited}}</h3>
+
+
+
+<form id="update" data-del-id={{country.id}} data-country-name={{country.name}}  accept-charset="utf-8">
+  
+  
+  <label for="visited">Visited</label><br>
+  <input id="visited" name="visited" type="checkbox" ><br>
+
+<input id="updateButton" data-del-id={{country.id}}  type="submit" name="update"  value="UPDATE">
+
+  
+</form>
+<!-- <input id="deleteButton" data-countryID={{country.id}} type="button" name="delete" value="Delete"> -->
+<br>
+<button id="del-btn" data-del-id={{country.id}}>DELETE</button>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

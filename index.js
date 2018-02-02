@@ -53,7 +53,7 @@ const destinationRouter = require('./controllers/destination');
 app.use('/', destinationRouter);
 
 app.get('/', (req, res) => {
-  res.render('main');
+  res.render('./users/login');
 });
 
 //  catchall for any wayward web requests.

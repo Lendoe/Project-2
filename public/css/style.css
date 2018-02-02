@@ -1,0 +1,18 @@
+/*@font-face{
+  font-family: lato;
+  src: url('./lato.ttf');
+}*/
+
+html{
+  background-color: #DCDCDC;
+}
+
+
+/*h3, h1, h4, a, button, form{
+  color : white;
+  text-align: center;
+  font-family: 'lato';
+}
+a:hover{
+  color:green;
+}*/

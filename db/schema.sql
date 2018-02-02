@@ -7,6 +7,7 @@ CREATE TABLE destination (
   name VARCHAR(255),
   population VARCHAR(255),
   capital VARCHAR(255),
+  visited VARCHAR(255),
   flag_url VARCHAR(255)
 );
 

@@ -6,13 +6,14 @@
   <meta http-equiv='X-UA-Compatible' content='ie=edge' />
   <title>Country List!!!!!</title>
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-  <link rel='stylesheet' type='text/css' href='./style.css'>
-  <script src="./jquery.js"></script>
-  <script src="./script.js"></script>
+  <link rel='stylesheet' type='text/css' href='/css/style.css'>
+  <script src="/jquery.js"></script>
+  <script src="/script.js"></script>
 </head>
 <body>
   <header>
-    <h1>Country List!</h1>
+    <h1>Choose a Bucket list country to visit</h1>
+    
   </header>
   <div class="container">
     <div class="search-container">
@@ -20,8 +21,12 @@
       <input type="text" id="countries" />
       <button id="submit">Search</button>
     </div>
-    <div id="result">
+    <div id="result">{{time}}
     </div>
+  </div>
+
+  <div>
+  <a href="/users/">Go Back"</a>  
   </div>
 </body>
 </html>
